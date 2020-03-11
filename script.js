@@ -9,6 +9,7 @@ Formulas:
 
 */
 
+//Formulas to be tested
 const formulas = [
     {
         name: "Prime Polynomial Function",
@@ -40,6 +41,7 @@ const formulas = [
     }
 ]
 
+// checks if a number is prime by its factors from 2 to the square root of the number
 function isPrime(number) {
     let maxDivisor = Math.ceil(Math.sqrt(number))
     for (var i = 2; i <= maxDivisor; i++) {
@@ -50,7 +52,8 @@ function isPrime(number) {
     return true
 }
 
-let getXPrimes = (count) => {
+// Gets first X number of prime numbers starting from 1 
+let getFirstXPrimes = (count) => {
     let primeNumbers = []
     for (var i = 1; i < count; i++) {
         if (isPrime(i)) {
@@ -60,4 +63,4 @@ let getXPrimes = (count) => {
     return primeNumbers
 }
 
-const FIRST_TEN_THOUSAND_PRIMES=getXPrimes(10000);
+const FIRST_TEN_THOUSAND_PRIMES=getFirstXPrimes(10000);
