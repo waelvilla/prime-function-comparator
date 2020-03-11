@@ -9,42 +9,55 @@ Formulas:
 
 */
 
-const formulas= [
+const formulas = [
     {
         name: "Prime Polynomial Function",
-        formula: (n)=> Math.pow(n,2) + n + 41
+        formula: (n) => Math.pow(n, 2) + n + 41
     },
     {
         name: "f2",
-        formula: (n)=> {}
+        formula: (n) => { }
     },
     {
         name: "f3",
-        formula: (n)=> {}
+        formula: (n) => { }
     },
     {
         name: "f4",
-        formula: (n)=> {}
+        formula: (n) => { }
     },
     {
         name: "f5",
-        formula: (n)=> {}
+        formula: (n) => { }
     },
     {
         name: "f6",
-        formula: (n)=> {}
+        formula: (n) => { }
     },
     {
         name: "f7",
-        formula: (n)=> {}
+        formula: (n) => { }
     }
 ]
 
-function getFirstTenThousandPrimes(){
-    let primeNumbers= []
-    for( var i =0; i<10000; i++){
-        //run 
+function isPrime(number) {
+    let maxDivisor = Math.ceil(Math.sqrt(number))
+    for (var i = 2; i <= maxDivisor; i++) {
+        if (number % i == 0) {
+            return false
+        }
+    }
+    return true
+}
+
+let getXPrimes = (count) => {
+    let primeNumbers = []
+    for (var i = 1; i < count; i++) {
+        if (isPrime(i)) {
+            primeNumbers.push(i)
+        }
     }
     return primeNumbers
 }
 
+const FIRST_TEN_THOUSAND_PRIMES=getXPrimes(10000);
