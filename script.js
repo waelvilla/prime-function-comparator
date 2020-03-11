@@ -64,3 +64,18 @@ let getFirstXPrimes = (count) => {
 }
 
 const FIRST_TEN_THOUSAND_PRIMES=getFirstXPrimes(10000);
+
+formulas.map((formulaObject)=>{
+    let startTime= new Date()
+    let primeNumbers=[]
+    for(var i =0; i<10000; i++){
+        let number= formulaObject.formula(i)
+        if(number && isPrime(number)){
+            primeNumbers.push(number)
+        }
+    }
+    let endTime= new Date()
+    let timeElapsed= (endTime - startTime) / 1000
+    // console.log(primeNumbers);
+    console.log("formula: ", formulaObject.name, "took", timeElapsed, "seconds");
+})
