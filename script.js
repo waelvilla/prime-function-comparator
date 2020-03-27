@@ -16,7 +16,8 @@ const formulas = [{
     },
     {
         name: "f2",
-        formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
+        formula: ()=>{}
+        // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "f3",
@@ -64,11 +65,11 @@ let getFirstXPrimes = (count) => {
 
 const FIRST_TEN_THOUSAND_PRIMES = getFirstXPrimes(10000);
 
-formulas.map((formulaObject) => {
+formulas.map(({name,formula}) => {
     let startTime = new Date()
     let primeNumbers = []
-    for (var i = 0; i < 10000; i++) {
-        let number = formulaObject.formula(i)
+    for (var i = 0; i < 1000; i++) {
+        let number = formula(i)
         if (number && isPrime(number)) {
             primeNumbers.push(number)
         }
@@ -76,5 +77,5 @@ formulas.map((formulaObject) => {
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
         // console.log(primeNumbers);
-    console.log("formula: ", formulaObject.name, "took", timeElapsed, "seconds");
+    console.log("formula: ", name, "took", timeElapsed, "seconds");
 })
