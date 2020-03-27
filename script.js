@@ -16,7 +16,8 @@ const formulas = [{
     },
     {
         name: "f2",
-        formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
+        formula: (n) => {}
+            // Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "f3",
