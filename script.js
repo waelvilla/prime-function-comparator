@@ -12,12 +12,12 @@ Formulas:
 //Formulas to be tested
 const formulas = [{
         name: "Prime Polynomial Function",
-        formula: (n) => Math.pow(n, 2) + n + 41
+        formula: (n) => Math.pow(n, 2) - 79 * n + 1601
     },
     {
         name: "f2",
         formula: (n) => {}
-            // Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
+            // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "f3",
@@ -42,6 +42,7 @@ const formulas = [{
 ]
 
 // checks if a number is prime by its factors from 2 to the square root of the number
+// VERIFIED
 function isPrime(number) {
     let maxDivisor = Math.ceil(Math.sqrt(number))
     for (var i = 2; i <= maxDivisor; i++) {
@@ -65,17 +66,25 @@ let getFirstXPrimes = (count) => {
 
 const FIRST_TEN_THOUSAND_PRIMES = getFirstXPrimes(10000);
 
-formulas.map((formulaObject) => {
+formulas.map(({ name, formula }) => {
     let startTime = new Date()
-    let primeNumbers = []
+    let primeNumbers = [];
+    let failedIndices = [];
+    let passedIndices = []; //
+    let firstBreak;
+
     for (var i = 0; i < 10000; i++) {
-        let number = formulaObject.formula(i)
+        let number = formula(i)
         if (number && isPrime(number)) {
+            passedIndices.push(i);
             primeNumbers.push(number)
+        } else {
+            firstBreak ? null : firstBreak = i;
+            failedIndices.push(i);
         }
     }
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
         // console.log(primeNumbers);
-    console.log("formula: ", formulaObject.name, "took", timeElapsed, "seconds");
+    console.log("formula: ", name, "took", timeElapsed, "seconds", "failed count: ", failedIndices.length, "  passed count: ", passedIndices.length, " First Break:", firstBreak);
 })
