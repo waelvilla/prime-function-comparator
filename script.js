@@ -1,13 +1,15 @@
 /*
 Resources: 
 https://en.wikipedia.org/wiki/Formula_for_primes
-
+https://math.stackexchange.com/questions/264544/how-to-find-number-of-prime-numbers-up-to-to-n
 
 Formulas: 
 1- https://wikimedia.org/api/rest_v1/media/math/render/svg/91340957e8616e6cdb438a0bede7e4ba804e4922
 
 
 */
+
+console.log(math.factorial(12));
 
 
 //Formulas to be tested
@@ -17,16 +19,16 @@ const formulas = [{
     },
     {
         name: "f2",
-        formula: ()=>{}
+        formula: (n)=>Math.floor(Math.pow(1, 3 * n))
         // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "f3",
-        formula: (n) => {}
+        formula: (n) => 6*n+1
     },
     {
         name: "f4",
-        formula: (n) => {}
+        formula: (n) => 6*n -1
     },
     {
         name: "f5",
@@ -74,10 +76,17 @@ formulas.map(({name,formula}) => {
         if (number && isPrime(number)) {
             primeNumbers.push(number)
         }
+        else{
+            break;
+        }
     }
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
-        // console.log(primeNumbers);
-    console.log("formula: ", name, "took", timeElapsed, "seconds");
+        console.log(`${name}:
+        - prime count: ${primeNumbers.length}
+        - time Elapsed: ${timeElapsed}
+        `);
+        
+    // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
 })
 
