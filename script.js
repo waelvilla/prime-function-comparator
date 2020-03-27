@@ -1,7 +1,7 @@
 /*
 Resources: 
 https://en.wikipedia.org/wiki/Formula_for_primes
-
+https://math.stackexchange.com/questions/264544/how-to-find-number-of-prime-numbers-up-to-to-n
 
 Formulas: 
 1- https://wikimedia.org/api/rest_v1/media/math/render/svg/91340957e8616e6cdb438a0bede7e4ba804e4922
@@ -9,31 +9,34 @@ Formulas:
 
 */
 
+console.log(math.factorial(12));
+
+
 //Formulas to be tested
 const formulas = [{
         name: "Prime Polynomial Function",
         formula: (n) => Math.pow(n, 2) - 79 * n + 1601
     },
     {
-        name: "f2",
+        name: "Cullen",
         formula: (n) => {}
             // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
-        name: "f3",
-        formula: (n) => {}
+        name: "6n - 1 Formula",
+        formula: (n) => 6 * n - 1
     },
     {
-        name: "f4",
+        name: "Carol Formula",
         formula: (n) => {}
     },
     {
         name: "f5",
-        formula: (n) => {}
+        formula: (n) => Math.floor(n % 4)
     },
     {
-        name: "f6",
-        formula: (n) => {}
+        name: "3n + 2",
+        formula: (n) => (3 * n + 2)
     },
     {
         name: "f7",
@@ -73,7 +76,7 @@ formulas.map(({ name, formula }) => {
     let passedIndices = []; //
     let firstBreak;
 
-    for (var i = 0; i < 10000; i++) {
+    for (var i = 0; i < 100; i++) {
         let number = formula(i)
         if (number && isPrime(number)) {
             passedIndices.push(i);
@@ -85,6 +88,12 @@ formulas.map(({ name, formula }) => {
     }
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
-        // console.log(primeNumbers);
-    console.log("formula: ", name, "took", timeElapsed, "seconds", "failed count: ", failedIndices.length, "  passed count: ", passedIndices.length, " First Break:", firstBreak);
+    console.log(`${name}:
+        - resulting primes count: ${primeNumbers.length}
+        - failures count: ${failedIndices.length} 
+        - the formula was consistent until : ${firstBreak}
+        - time Elapsed: ${timeElapsed}
+        `);
+
+    // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
 })
