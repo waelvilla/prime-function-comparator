@@ -15,7 +15,7 @@ console.log(math.factorial(12));
 //Formulas to be tested
 const formulas = [{
         name: "Prime Polynomial Function",
-        formula: (n) => Math.pow(n, 2) + n + 41
+        formula: (n) => Math.pow(n, 2) - 79 * n + 1601
     },
     {
         name: "f2",
@@ -45,6 +45,7 @@ const formulas = [{
 ]
 
 // checks if a number is prime by its factors from 2 to the square root of the number
+// VERIFIED
 function isPrime(number) {
     let maxDivisor = Math.ceil(Math.sqrt(number))
     for (var i = 2; i <= maxDivisor; i++) {
@@ -68,16 +69,21 @@ let getFirstXPrimes = (count) => {
 
 const FIRST_TEN_THOUSAND_PRIMES = getFirstXPrimes(10000);
 
-formulas.map(({name,formula}) => {
+formulas.map(({ name, formula }) => {
     let startTime = new Date()
-    let primeNumbers = []
-    for (var i = 0; i < 1000; i++) {
+    let primeNumbers = [];
+    let failedIndices = [];
+    let passedIndices = []; //
+    let firstBreak;
+
+    for (var i = 0; i < 10000; i++) {
         let number = formula(i)
         if (number && isPrime(number)) {
+            passedIndices.push(i);
             primeNumbers.push(number)
-        }
-        else{
-            break;
+        } else {
+            firstBreak ? null : firstBreak = i;
+            failedIndices.push(i);
         }
     }
     let endTime = new Date()
