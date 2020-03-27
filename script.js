@@ -10,34 +10,33 @@ Formulas:
 */
 
 //Formulas to be tested
-const formulas = [
-    {
+const formulas = [{
         name: "Prime Polynomial Function",
         formula: (n) => Math.pow(n, 2) + n + 41
     },
     {
         name: "f2",
-        formula: (n) => { }
+        formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "f3",
-        formula: (n) => { }
+        formula: (n) => {}
     },
     {
         name: "f4",
-        formula: (n) => { }
+        formula: (n) => {}
     },
     {
         name: "f5",
-        formula: (n) => { }
+        formula: (n) => {}
     },
     {
         name: "f6",
-        formula: (n) => { }
+        formula: (n) => {}
     },
     {
         name: "f7",
-        formula: (n) => { }
+        formula: (n) => {}
     }
 ]
 
@@ -63,19 +62,19 @@ let getFirstXPrimes = (count) => {
     return primeNumbers
 }
 
-const FIRST_TEN_THOUSAND_PRIMES=getFirstXPrimes(10000);
+const FIRST_TEN_THOUSAND_PRIMES = getFirstXPrimes(10000);
 
-formulas.map((formulaObject)=>{
-    let startTime= new Date()
-    let primeNumbers=[]
-    for(var i =0; i<10000; i++){
-        let number= formulaObject.formula(i)
-        if(number && isPrime(number)){
+formulas.map((formulaObject) => {
+    let startTime = new Date()
+    let primeNumbers = []
+    for (var i = 0; i < 10000; i++) {
+        let number = formulaObject.formula(i)
+        if (number && isPrime(number)) {
             primeNumbers.push(number)
         }
     }
-    let endTime= new Date()
-    let timeElapsed= (endTime - startTime) / 1000
-    // console.log(primeNumbers);
+    let endTime = new Date()
+    let timeElapsed = (endTime - startTime) / 1000
+        // console.log(primeNumbers);
     console.log("formula: ", formulaObject.name, "took", timeElapsed, "seconds");
 })
