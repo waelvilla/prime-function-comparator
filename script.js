@@ -80,3 +80,4 @@ formulas.map(({name,formula}) => {
         // console.log(primeNumbers);
     console.log("formula: ", name, "took", timeElapsed, "seconds");
 })
+
