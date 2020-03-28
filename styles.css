@@ -20,7 +20,10 @@ h1 {
     font-size: 72px;
     color: #333333;
 }
-
+.pieChart{
+    width:400px;
+    height:400px;
+}
 section {
     background-position: 85% 0px;
     display: flex;
