@@ -14,33 +14,34 @@ console.log(math.factorial(12));
 
 //Formulas to be tested
 const formulas = [{
-        name: "Prime Polynomial Function",
+        name: "Prime Polynomial Function ESCOTT in 1899",
         formula: (n) => Math.pow(n, 2) - 79 * n + 1601
     },
     {
-        name: "f2",
-        formula: (n)=>Math.floor(Math.pow(1, 3 * n))
-        // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
+        name: "High Jack",
+        formula: (n) => (4 * Math.pow(n, 2) - (8 * n + 154) * n + 4 * Math.pow(n, 2) + 154 * n + 1523)
+            // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
-        name: "f3",
-        formula: (n) => 6*n+1
+        name: "6n - 1 Formula",
+        formula: (n) => 6 * n - 1
     },
     {
-        name: "f4",
-        formula: (n) => 6*n -1
+        name: "High Bill",
+        formula: (n) => (Math.pow(n, 2) - (2 * n + 79) * n + Math.pow(n, 2) + 79 * n + 1601)
     },
     {
         name: "f5",
-        formula: (n) => {}
+        formula: (n) => (Math.pow(n, 2) - 2999 * n + 2248541)
     },
     {
-        name: "f6",
-        formula: (n) => {}
+        name: "3n + 2",
+        formula: (n) => (3 * n + 2)
     },
     {
+        //Gold
         name: "f7",
-        formula: (n) => {}
+        formula: (n) => (9 * Math.pow(n, 2) - (18 * n + 231) * n + 9 * Math.pow(n, 2) + 231 * n + 1523)
     }
 ]
 
@@ -57,17 +58,6 @@ function isPrime(number) {
 }
 
 // Gets first X number of prime numbers starting from 1 
-let getFirstXPrimes = (count) => {
-    let primeNumbers = []
-    for (var i = 1; i < count; i++) {
-        if (isPrime(i)) {
-            primeNumbers.push(i)
-        }
-    }
-    return primeNumbers
-}
-
-const FIRST_TEN_THOUSAND_PRIMES = getFirstXPrimes(10000);
 
 formulas.map(({ name, formula }) => {
     let startTime = new Date()
@@ -88,11 +78,12 @@ formulas.map(({ name, formula }) => {
     }
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
-        console.log(`${name}:
-        - prime count: ${primeNumbers.length}
+    console.log(`${name}:
+        - resulting primes count: ${primeNumbers.length}
+        - failures count: ${failedIndices.length} 
+        - the formula was consistent until : ${firstBreak}
         - time Elapsed: ${timeElapsed}
         `);
-        
+
     // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
 })
-
