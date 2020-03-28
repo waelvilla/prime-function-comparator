@@ -9,7 +9,7 @@ Formulas:
 
 */
 
-console.log(math.factorial(12));
+// console.log(math.factorial(12));
 
 
 //Formulas to be tested
@@ -59,31 +59,59 @@ function isPrime(number) {
 
 // Gets first X number of prime numbers starting from 1 
 
-formulas.map(({ name, formula }) => {
-    let startTime = new Date()
-    let primeNumbers = [];
-    let failedIndices = [];
-    let passedIndices = []; //
-    let firstBreak;
+// formulas.map(({ name, formula }) => {
+//     let startTime = new Date()
+//     let primeNumbers = [];
+//     let failedIndices = [];
+//     let passedIndices = []; //
+//     let firstBreak;
 
-    for (var i = 0; i < 10000; i++) {
-        let number = formula(i)
-        if (number && isPrime(number)) {
-            passedIndices.push(i);
-            primeNumbers.push(number)
-        } else {
-            firstBreak ? null : firstBreak = i;
-            failedIndices.push(i);
+//     for (var i = 0; i < 10000; i++) {
+//         let number = formula(i)
+//         if (number && isPrime(number)) {
+//             passedIndices.push(i);
+//             primeNumbers.push(number)
+//         } else {
+//             firstBreak ? null : firstBreak = i;
+//             failedIndices.push(i);
+//         }
+//     }
+//     let endTime = new Date()
+//     let timeElapsed = (endTime - startTime) / 1000
+//     console.log(`${name}:
+//         - resulting primes count: ${primeNumbers.length}
+//         - failures count: ${failedIndices.length} 
+//         - the formula was consistent until : ${firstBreak}
+//         - time Elapsed: ${timeElapsed}
+//         `);
+
+//     // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
+// })
+
+function ffGold(x){
+let n = x- 13
+//9x^2 - (18n + 231)x + 9n^2 + 231n + 1523 
+let result = Math.abs(9*Math.pow(x,2) - x* (18*n + 231) + 9*Math.pow(n, 2) + 1523)
+return result
+}
+
+function heegner(n){
+    let hnumbs=[1,2,3,7,11,19,43,67,163]
+    let p = 163
+    for(var i in hnumbs){        
+        if(n<=hnumbs[i]){
+            p= hnumbs[i]
+            break;
         }
     }
-    let endTime = new Date()
-    let timeElapsed = (endTime - startTime) / 1000
-    console.log(`${name}:
-        - resulting primes count: ${primeNumbers.length}
-        - failures count: ${failedIndices.length} 
-        - the formula was consistent until : ${firstBreak}
-        - time Elapsed: ${timeElapsed}
-        `);
+    // console.log("p:", p);
+    
+    let result = Math.pow(n, 2) % p
+    return result 
+}
+let arr= []
+for(var i =0 ; i<1000; i++){
+    arr.push(heegner(i))
+}
+console.log(arr);
 
-    // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
-})
