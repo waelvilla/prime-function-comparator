@@ -23,17 +23,6 @@ const formulas = [{
         name: "6n - 1 Formula",
         formula: (n) => Math.abs(6 * n - 1)
     },
-    {
-        name: "High Bill",
-        formula: (n) => {
-            let firstExp = (2 * n + 1) / (math.factorial(2 * n) + 1)
-            let secondExp = Math.floor((math.factorial(2 * n) + 1) / (2 * n + 1))
-            let flooredExp = Math.floor(firstExp * secondExp)
-            let result = 2 * Math.pow(((2 * n + 1) / 2), flooredExp)
-
-            return result
-        }
-    },
     { //8n^2-488n+7243	6
         name: "F. Gobbo (pers. comm., Dec. 27, 2005)",
         formula: (n) => 8 * Math.pow(n, 2) - 488 * n + 7243
@@ -128,16 +117,14 @@ function isPrime(number) {
     return true
 }
 
-// Gets first X number of prime numbers starting from 1 
-
-formulas.map(({ name, formula }) => {
+function runFormula({name, formula, max}){
     let startTime = new Date()
     var primeNumbers = new Set();
     let failedIndices = [];
     let passedIndices = []; //
     let firstBreak;
 
-    for (var i = 0; i < 10000; i++) {
+    for (var i = 0; i < max; i++) {
         let number = formula(i)
         if (number == false) { failedIndices.push(i); continue }
         if (number && isPrime(number)) {
@@ -152,6 +139,12 @@ formulas.map(({ name, formula }) => {
     }
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
+    return {
+        primeNumbers: [...primeNumbers],
+        failedIndices,
+        firstBreak, 
+        timeElapsed
+    }
     console.log(`${name}:
         - resulting primes count: ${primeNumbers.size}
         - failures count: ${failedIndices.length} 
@@ -161,5 +154,40 @@ formulas.map(({ name, formula }) => {
 
     console.log(primeNumbers);
 
-    // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
-})
+}
+
+// Gets first X number of prime numbers starting from 1 
+
+// formulas.map(({ name, formula }) => {
+//     let startTime = new Date()
+//     var primeNumbers = new Set();
+//     let failedIndices = [];
+//     let passedIndices = []; //
+//     let firstBreak;
+
+//     for (var i = 0; i < 10000; i++) {
+//         let number = formula(i)
+//         if (number == false) { failedIndices.push(i); continue }
+//         if (number && isPrime(number)) {
+//             passedIndices.push(i);
+//             name.includes("Wheel") ? primeNumbers.add(...number) :
+//                 primeNumbers.add(number);
+
+//         } else {
+//             firstBreak ? null : firstBreak = i;
+//             failedIndices.push(i);
+//         }
+//     }
+//     let endTime = new Date()
+//     let timeElapsed = (endTime - startTime) / 1000
+//     console.log(`${name}:
+//         - resulting primes count: ${primeNumbers.size}
+//         - failures count: ${failedIndices.length} 
+//         - the formula was consistent until : ${firstBreak}
+//         - time Elapsed: ${timeElapsed}
+//         `);
+
+//     console.log(primeNumbers);
+
+//     // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
+// })

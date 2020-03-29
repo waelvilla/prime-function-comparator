@@ -26,46 +26,38 @@
             <div class="dropdown">
                 <button class="dropbtn" id="dropdownTitle">Select Method</button>
                 <div class="dropdown-content" id="dropdownContent">
-                
-                    <!-- <a href="#" onclick="return setFunction(1)">Link 1</a>
-                    <a href="#" onclick="return setFunction(2)">Link 1</a>
-                    <a href="#" onclick="return setFunction(3)">Link 1</a>
-                    <a href="#" onclick="return setFunction(4)">Link 1</a>
-                    <a href="#" onclick="return setFunction(5)">Link 1</a>
-                    <a href="#" onclick="return setFunction(6)">Link 1</a>
-                    <a href="#" onclick="return setFunction(7)">Link 1</a> -->
                 </div>
             </div>
+            <div id="output" class="d-none">
+                <div class="title">
+                    Out of <span class="font-weight-bold" id="maxNumber"></span> numbers:
+                </div>
+                <div class="result">
+                    <div>
+                        Correctly identified primes: <span id="primeCount">1000</span> numbers
+                    </div>
+                    <div>
+                        Incorrect results: <span id="failedIndices">5000</span> numbers
+                    </div>
 
-            <div class="title">
-                Out of <span class="font-weight-bold">3000</span> numbers:
-            </div>
-            <div class="result">
-                <div>
-                    Correctly identified primes: 1000 numbers
+                    <div>
+                        First Break: <span id="firstBreak">12</span>
+                    </div>
+                    <div>
+                        Time Spent: <span id="timeElapsed">12</span> ms
+                    </div>
                 </div>
-                <div>
-                    Incorrect results: 5000 numbers
+                <div class="resultsTitle">
+                    Results
                 </div>
 
-                <div>
-                    Accuracy: 58%
+                <div id="primeNumbers">
+                    [1,3,5,7,1,3,5,71,3,5,7]
                 </div>
-                <div>
-                    Time Spent: 12 ms
-                </div>
-            </div>
-            <div class="resultsTitle">
-                Results
-            </div>
-
-            <div class="result">
-                [1,3,5,7,1,3,5,71,3,5,7]
             </div>
         </div>
-
         <button type="button" onclick="checkPrime()">Check Prime</button>
-    <canvas id="myChart" class="pieChart" width="400" height="400"></canvas>
+        <canvas id="myChart" class="pieChart" width="400" height="400"></canvas>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -80,7 +72,7 @@
                         40
                     ],
                     backgroundColor: [
-                        'red','orange'
+                        'red', 'orange'
                     ],
                     label: 'Dataset 1'
                 }],
@@ -106,7 +98,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-        <script src="formulas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.js"></script>
+    <script src="formulas.js"></script>
     <script src="script.js"></script>
 
 </body>
