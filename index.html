@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Prime Number Generator</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
@@ -50,52 +51,61 @@
                     Results
                 </div>
 
-            <div class="results" id="primeNumbers">
-                1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53,
-                59, 61, 67, 71, 73, 79, 83, 97,
+                <div class="results" id="primeNumbers">
+                    1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2,
+                    3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2, 3, 5,
+                    7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53,
+                    59, 61, 67, 71, 73, 79, 83, 97,
+                </div>
             </div>
-        </div>
         </div>
         <button type="button" onclick="checkPrime()">Check Prime</button>
 
         <canvas id="myChart" class="pieChart" width="400" height="400" ,></canvas>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.js"></script>
+    <script src="formulas.js"></script>
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var config = {
-            type: 'pie',
+        function ShowPie(total, primeCount) {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            let nonPrime = total - primeCount
 
-            data: {
-                datasets: [{
+            var config = {
+                type: 'pie',
 
-                    data: [
-                        60,
-                        40
-                    ],
-                    backgroundColor: [
-                        'white', '#FFBC42'
-                    ],
+                data: {
+                    datasets: [{
 
-                    label: 'Dataset 3',
-                    borderWidth: 0,
+                        data: [
+                            primeCount,
+                            nonPrime
+                        ],
+                        backgroundColor: [
+                            'white', '#FFBC42'
+                        ],
 
-
-                }],
-
-                // labels: [
-                //     'false primes',
-                //     'true primes',
-                // ]
-            },
-            options: {
-                responsive: false,
+                        label: 'Dataset 3',
+                        borderWidth: 0,
 
 
-            },
-        };
-        var myPieChart = new Chart(ctx, config);
+                    }],
+
+                    // labels: [
+                    //     'false primes',
+                    //     'true primes',
+                    // ]
+                },
+                options: {
+                    responsive: false,
+
+
+                },
+            };
+            var myPieChart = new Chart(ctx, config);
+        }
     </script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -107,9 +117,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.js"></script>
-    <script src="formulas.js"></script>
-    <script src="script.js"></script>
 
 </body>
 

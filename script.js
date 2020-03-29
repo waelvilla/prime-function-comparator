@@ -27,33 +27,33 @@ function checkPrime() {
         max: maxPrime
     })
     setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElapsed);
-
+    ShowPie(maxPrime, primeNumbers.length)
 
 }
 
 function setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElapsed) {
     const outputMax = document.querySelector('#maxNumber')
     const output = document.querySelector('#output')
-    const primeNumbersHTML= document.querySelector('#primeNumbers')
-    const primeCountHTML= document.querySelector('#primeCount')
-    const failedIndicesHTML= document.querySelector('#failedIndices')
-    const firstBreakHTML= document.querySelector('#firstBreak')
-    const timeElapsedHTML= document.querySelector('#timeElapsed')
+    const primeNumbersHTML = document.querySelector('#primeNumbers')
+    const primeCountHTML = document.querySelector('#primeCount')
+    const failedIndicesHTML = document.querySelector('#failedIndices')
+    const firstBreakHTML = document.querySelector('#firstBreak')
+    const timeElapsedHTML = document.querySelector('#timeElapsed')
 
     output.classList.remove('d-none')
     outputMax.innerHTML = maxPrime ? maxPrime : ''
-    primeNumbersHTML.innerHTML= primeNumbers ? printArray(primeNumbers) : ''
+    primeNumbersHTML.innerHTML = primeNumbers ? printArray(primeNumbers) : ''
     primeCountHTML.innerHTML = primeNumbers.length
-    failedIndicesHTML.innerHTML = failedIndices? failedIndices.length : ''
+    failedIndicesHTML.innerHTML = failedIndices ? failedIndices.length : ''
     timeElapsedHTML.innerHTML = timeElapsed ? timeElapsed : 0
-    firstBreakHTML.innerHTML= firstBreak ? firstBreak : '' 
-    
+    firstBreakHTML.innerHTML = firstBreak ? firstBreak : ''
+
 }
 
-function printArray(arr){
+function printArray(arr) {
     let output = ''
-    for(var i in arr){
-        output= output+ ", "+ arr[i]
+    for (var i in arr) {
+        output = output + ", " + arr[i]
     }
     return output
 }
