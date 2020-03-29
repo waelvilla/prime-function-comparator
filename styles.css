@@ -191,7 +191,7 @@ button:hover {
     width: 450px;
 }
 
-#results {
+.results {
     color: white;
     font-weight: 300;
     font-size: 48px;
