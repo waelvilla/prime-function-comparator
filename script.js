@@ -19,8 +19,15 @@ const formulas = [{
     },
     {
         name: "High Jack",
-        formula: (n) => (4 * Math.pow(n, 2) - (8 * n + 154) * n + 4 * Math.pow(n, 2) + 154 * n + 1523)
-            // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
+        formula: (x) => {
+            let n = (x - 19.5)
+                // 4x^2 - (8n+154)x + 4n^2 +154n + 1523
+            let result = 4 * Math.pow(x, 2) - (8 * n + 154) * x + 4 * Math.pow(n, 2) + 154 * n + 1523
+            return Math.abs(result)
+        }
+
+        //(4 * Math.pow(n, 2) - (8 * n + 154) * n + 4 * Math.pow(n, 2) + 154 * n + 1523)
+        // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
     },
     {
         name: "6n - 1 Formula",
@@ -35,14 +42,60 @@ const formulas = [{
         formula: (n) => (Math.pow(n, 2) - 2999 * n + 2248541)
     },
     {
-        name: "3n + 2",
-        formula: (n) => (3 * n + 2)
+        name: "Euller",
+        formula: (x) => (Math.pow(x, 2) + x + 41)
     },
     {
         //Gold
         name: "f7",
-        formula: (n) => (9 * Math.pow(n, 2) - (18 * n + 231) * n + 9 * Math.pow(n, 2) + 231 * n + 1523)
-    }
+        formula: (x) => {
+            let n = x - 13
+                //9x^2 - (18n + 231)x + 9n^2 + 231n + 1523
+            let result = (9 * Math.pow(x, 2)) - ((18 * n + 231) * x) + (9 * Math.pow(n, 2) + 231 * n) + 1523
+            return Math.abs(result)
+        }
+    },
+    {
+        name: "Wheel Theory Our Derivative",
+        formula: function func(x) {
+            let knownPrimes = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97, ];
+            let result = [];
+            for (i in knownPrimes) {
+                let temp = knownPrimes[i] + x;
+                if (isPrime(temp)) {
+                    result.push(temp)
+                }
+            }
+            return result;
+
+        }
+    },
+
+    {
+        name: "Wheel Theory Original", ///// DIDNT DO ANYTHNG YET MUST CHANEG SHIT
+        formula: function func(x) {
+            let knownPrimes = [7, 11, 13, 17, 19, 23, 29, 31];
+            let result = [];
+            for (i in knownPrimes) {
+                let temp = knownPrimes[i] * x;
+                if (isPrime(temp)) {
+                    result.push(temp)
+                }
+            }
+            return result;
+
+        },
+    },
+
+    {
+        name: "Lazy",
+        formula: (x) => {
+            return isPrime(x) ? x : false;
+        }
+    },
+
+
+
 ]
 
 // checks if a number is prime by its factors from 2 to the square root of the number
@@ -68,6 +121,7 @@ formulas.map(({ name, formula }) => {
 
     for (var i = 0; i < 10000; i++) {
         let number = formula(i)
+        if (number == false) { continue }
         if (number && isPrime(number)) {
             passedIndices.push(i);
             primeNumbers.push(number)
