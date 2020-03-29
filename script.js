@@ -35,14 +35,21 @@ const formulas = [{
     },
     {
         name: "High Bill",
-        formula: (n) => (Math.pow(n, 2) - (2 * n + 79) * n + Math.pow(n, 2) + 79 * n + 1601)
+        formula: (n) => {
+            let firstExp = (2 * n + 1) / (math.factorial(2 * n) + 1)
+            let secondExp = Math.floor((math.factorial(2 * n) + 1) / (2 * n + 1))
+            let flooredExp = Math.floor(firstExp * secondExp)
+            let result = 2 * Math.pow(((2 * n + 1) / 2), flooredExp)
+
+            return result
+        }
     },
     {
-        name: "f5",
+        name: "Polynomial by Miot 1912",
         formula: (n) => (Math.pow(n, 2) - 2999 * n + 2248541)
     },
     {
-        name: "Euller",
+        name: "Euller 1772",
         formula: (x) => (Math.pow(x, 2) + x + 41)
     },
     {
@@ -58,7 +65,7 @@ const formulas = [{
     {
         name: "Wheel Theory Our Derivative",
         formula: function func(x) {
-            let knownPrimes = [3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97, ];
+            let knownPrimes = [1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97, ];
             let result = [];
             for (i in knownPrimes) {
                 let temp = knownPrimes[i] + x;
@@ -72,19 +79,21 @@ const formulas = [{
     },
 
     {
-        name: "Wheel Theory Original", ///// DIDNT DO ANYTHNG YET MUST CHANEG SHIT
-        formula: function func(x) {
-            let knownPrimes = [7, 11, 13, 17, 19, 23, 29, 31];
-            let result = [];
-            for (i in knownPrimes) {
-                let temp = knownPrimes[i] * x;
-                if (isPrime(temp)) {
-                    result.push(temp)
-                }
-            }
-            return result;
+        name: "Wright 1951",
+        formula: function func(n) {
+            return Math.floor(2 * 1.92878 * n)
+        }
+    },
 
-        },
+    {
+        name: "Wilson's theorem",
+        formula: function func(n) {
+            let nominator = factorial(n) % (n + 1)
+            if (nominator != n) { return false; }
+            let flooredFraction = Math.floor(nominator / n)
+            let result = flooredFraction * (n - 1) + 2;
+            return result;
+        }
     },
 
     {
@@ -98,9 +107,23 @@ const formulas = [{
 
 ]
 
+
+
+var f = [];
+
+function factorial(n) {
+    if (n == 0 || n == 1)
+        return 1;
+    if (f[n] > 0)
+        return f[n];
+    return f[n] = factorial(n - 1) * n;
+}
+
+
 // checks if a number is prime by its factors from 2 to the square root of the number
 // VERIFIED
 function isPrime(number) {
+    if (number == 2 || number == 1) { return true };
     let maxDivisor = Math.ceil(Math.sqrt(number))
     for (var i = 2; i <= maxDivisor; i++) {
         if (number % i == 0) {
@@ -114,17 +137,19 @@ function isPrime(number) {
 
 formulas.map(({ name, formula }) => {
     let startTime = new Date()
-    let primeNumbers = [];
+    var primeNumbers = new Set();
     let failedIndices = [];
     let passedIndices = []; //
     let firstBreak;
 
     for (var i = 0; i < 10000; i++) {
         let number = formula(i)
-        if (number == false) { continue }
+        if (number == false) { failedIndices.push(i); continue }
         if (number && isPrime(number)) {
             passedIndices.push(i);
-            primeNumbers.push(number)
+            name.includes("Wheel") ? primeNumbers.add(...number) :
+                primeNumbers.add(number);
+
         } else {
             firstBreak ? null : firstBreak = i;
             failedIndices.push(i);
@@ -133,11 +158,13 @@ formulas.map(({ name, formula }) => {
     let endTime = new Date()
     let timeElapsed = (endTime - startTime) / 1000
     console.log(`${name}:
-        - resulting primes count: ${primeNumbers.length}
+        - resulting primes count: ${primeNumbers.size}
         - failures count: ${failedIndices.length} 
         - the formula was consistent until : ${firstBreak}
         - time Elapsed: ${timeElapsed}
         `);
+
+    console.log(primeNumbers);
 
     // console.log("formula: ", name, "took", timeElapsed, "seconds and breaks at", primeNumbers.length,"th number" );
 })
