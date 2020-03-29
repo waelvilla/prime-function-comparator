@@ -24,15 +24,16 @@
 
 
             <div class="dropdown">
-                <button class="dropbtn">Select Method</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                    <a href="#">Link 7</a>
+                <button class="dropbtn" id="dropdownTitle">Select Method</button>
+                <div class="dropdown-content" id="dropdownContent">
+                
+                    <!-- <a href="#" onclick="return setFunction(1)">Link 1</a>
+                    <a href="#" onclick="return setFunction(2)">Link 1</a>
+                    <a href="#" onclick="return setFunction(3)">Link 1</a>
+                    <a href="#" onclick="return setFunction(4)">Link 1</a>
+                    <a href="#" onclick="return setFunction(5)">Link 1</a>
+                    <a href="#" onclick="return setFunction(6)">Link 1</a>
+                    <a href="#" onclick="return setFunction(7)">Link 1</a> -->
                 </div>
             </div>
 
@@ -63,8 +64,7 @@
             </div>
         </div>
 
-        <button type="button">Check Prime</button>
-        
+        <button type="button" onclick="checkPrime()">Check Prime</button>
     <canvas id="myChart" class="pieChart" width="400" height="400"></canvas>
     </section>
 
@@ -106,6 +106,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+        <script src="formulas.js"></script>
     <script src="script.js"></script>
 
 </body>
