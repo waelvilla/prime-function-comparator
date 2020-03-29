@@ -42,14 +42,21 @@ function setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElaps
 
     output.classList.remove('d-none')
     outputMax.innerHTML = maxPrime ? maxPrime : ''
-    primeNumbersHTML.innerHTML= primeNumbers ? primeNumbers : ''
+    primeNumbersHTML.innerHTML= primeNumbers ? printArray(primeNumbers) : ''
     primeCountHTML.innerHTML = primeNumbers.length
-    failedIndicesHTML.innerHTML = failedIndices? failedIndices : ''
+    failedIndicesHTML.innerHTML = failedIndices? failedIndices.length : ''
     timeElapsedHTML.innerHTML = timeElapsed ? timeElapsed : 0
     firstBreakHTML.innerHTML= firstBreak ? firstBreak : '' 
     
 }
 
+function printArray(arr){
+    let output = ''
+    for(var i in arr){
+        output= output+ ", "+ arr[i]
+    }
+    return output
+}
 function run() {
 
 }
