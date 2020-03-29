@@ -23,39 +23,32 @@
 
 
             <div class="dropdown">
-                <button class="dropbtn">Select Method</button>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
-                    <a href="#">Link 4</a>
-                    <a href="#">Link 5</a>
-                    <a href="#">Link 6</a>
-                    <a href="#">Link 7</a>
+                <button class="dropbtn" id="dropdownTitle">Select Method</button>
+                <div class="dropdown-content" id="dropdownContent">
                 </div>
             </div>
+            <div id="output" class="">
+                <div class="title">
+                    Out of <span class="font-weight-bold" id="maxNumber"></span> numbers:
+                </div>
+                <div class="result">
+                    <div>
+                        Correctly identified primes: <span id="primeCount">1000</span> numbers
+                    </div>
+                    <div>
+                        Incorrect results: <span id="failedIndices">5000</span> numbers
+                    </div>
 
-            <div class="title">
-                Out of <span class="font-weight-bold">3000</span> numbers:
-            </div>
-            <div class="result">
-                <div>
-                    Correctly identified primes: 1000 numbers
+                    <div>
+                        First Break: <span id="firstBreak">12</span>
+                    </div>
+                    <div>
+                        Time Spent: <span id="timeElapsed">12</span> ms
+                    </div>
                 </div>
-                <div>
-                    Incorrect results: 5000 numbers
+                <div class="resultsTitle">
+                    Results
                 </div>
-
-                <div>
-                    Accuracy: 58%
-                </div>
-                <div>
-                    Time Spent: 12 ms
-                </div>
-            </div>
-            <div class="resultsTitle">
-                Results
-            </div>
 
             <div id="results">
                 1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 97,1, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53,
@@ -63,9 +56,9 @@
             </div>
         </div>
 
-        <button type="button">Check Prime</button>
+        <button type="button" onclick="checkPrime()">Check Prime</button>
 
-        <canvas id="myChart" class="pieChart" width="400" height="400" ,></canvas>
+        <canvas id="myChart" class="pieChart" width="400" height="400" ></canvas>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -105,9 +98,17 @@
         var myPieChart = new Chart(ctx, config);
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.js"></script>
+    <script src="formulas.js"></script>
     <script src="script.js"></script>
 
 </body>
