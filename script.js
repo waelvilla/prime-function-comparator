@@ -21,7 +21,7 @@ const formulas = [{
     },
     {
         name: "6n - 1 Formula",
-        formula: (n) => 6 * n - 1
+        formula: (n) => Math.abs(6 * n - 1)
     },
     {
         name: "High Bill",
