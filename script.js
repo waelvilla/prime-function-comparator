@@ -2,6 +2,8 @@
 Resources: 
 https://en.wikipedia.org/wiki/Formula_for_primes
 https://math.stackexchange.com/questions/264544/how-to-find-number-of-prime-numbers-up-to-to-n
+https://www.jstor.org/stable/2975080?read-now=1&seq=14#metadata_info_tab_contents
+https://mathworld.wolfram.com/Prime-GeneratingPolynomial.html
 
 Formulas: 
 1- https://wikimedia.org/api/rest_v1/media/math/render/svg/91340957e8616e6cdb438a0bede7e4ba804e4922
@@ -18,18 +20,6 @@ const formulas = [{
         formula: (n) => Math.pow(n, 2) - 79 * n + 1601
     },
     {
-        name: "High Jack",
-        formula: (x) => {
-            let n = (x - 19.5)
-                // 4x^2 - (8n+154)x + 4n^2 +154n + 1523
-            let result = 4 * Math.pow(x, 2) - (8 * n + 154) * x + 4 * Math.pow(n, 2) + 154 * n + 1523
-            return Math.abs(result)
-        }
-
-        //(4 * Math.pow(n, 2) - (8 * n + 154) * n + 4 * Math.pow(n, 2) + 154 * n + 1523)
-        // formula: (n) => Math.floor(Math.pow(1.3063778838630806904686144926, 3 * n))
-    },
-    {
         name: "6n - 1 Formula",
         formula: (n) => 6 * n - 1
     },
@@ -44,23 +34,29 @@ const formulas = [{
             return result
         }
     },
-    {
-        name: "Polynomial by Miot 1912",
-        formula: (n) => (Math.pow(n, 2) - 2999 * n + 2248541)
+    { //8n^2-488n+7243	6
+        name: "F. Gobbo (pers. comm., Dec. 27, 2005)",
+        formula: (n) => 8 * Math.pow(n, 2) - 488 * n + 7243
+    },
+
+    { //8n^2-488n+7243	6
+        name: "R. Frame (pers. comm., Dec. 30, 2018)",
+        formula: (n) => 3 * Math.pow(n, 2) + 3 * n + 23
     },
     {
         name: "Euller 1772",
         formula: (x) => (Math.pow(x, 2) + x + 41)
     },
     {
-        //Gold
-        name: "f7",
-        formula: (x) => {
-            let n = x - 13
-                //9x^2 - (18n + 231)x + 9n^2 + 231n + 1523
-            let result = (9 * Math.pow(x, 2)) - ((18 * n + 231) * x) + (9 * Math.pow(n, 2) + 231 * n) + 1523
-            return Math.abs(result)
-        }
+        name: "Gauss",
+        formula: (n) => 2 * Math.pow(n, 2) + 2 * n + 19
+    },
+
+    {
+        name: "Gauss",
+        formula: function func(n) {
+            return 6 * Math.pow(n, 2) + 6 * n + 31;
+        },
     },
     {
         name: "Wheel Theory Our Derivative",
@@ -77,32 +73,31 @@ const formulas = [{
 
         }
     },
-
-    {
-        name: "Wright 1951",
-        formula: function func(n) {
-            return Math.floor(2 * 1.92878 * n)
-        }
-    },
-
     {
         name: "Wilson's theorem",
         formula: function func(n) {
             let nominator = factorial(n) % (n + 1)
-            if (nominator != n) { return false; }
+                // if (nominator != n) { return false; }
             let flooredFraction = Math.floor(nominator / n)
             let result = flooredFraction * (n - 1) + 2;
+            if (nominator == n) {
+                return n + 1;
+            }
             return result;
         }
-    },
+    }
 
-    {
-        name: "Lazy",
-        formula: (x) => {
-            return isPrime(x) ? x : false;
-        }
-    },
+    // r_ = r
+    // while r>0:
+    //    #randrange is mersenne twister and is completely deterministic
+    //    #unusable for serious crypto purposes
+    //     n = random.randrange(2**(k-1),2**(k))
+    //     r-=1
+    //     if isPrime(n) == True:
+    //         return n
+    // return "Failure after "+`r_` + " tries."
 
+    // print generateLargePrime(1024)
 
 
 ]
