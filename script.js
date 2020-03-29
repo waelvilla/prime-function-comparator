@@ -1,13 +1,4 @@
-/*
-Resources: 
-https://en.wikipedia.org/wiki/Formula_for_primes
 
-
-Formulas: 
-1- https://wikimedia.org/api/rest_v1/media/math/render/svg/91340957e8616e6cdb438a0bede7e4ba804e4922
-
-
-*/
 
 window.onload= run()
 
