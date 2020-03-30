@@ -117,7 +117,7 @@ function isPrime(number) {
     return true
 }
 
-function runFormula({name, formula, max}){
+function runFormula({ name, formula, max }) {
     let startTime = new Date()
     var primeNumbers = new Set();
     let failedIndices = [];
@@ -142,7 +142,7 @@ function runFormula({name, formula, max}){
     return {
         primeNumbers: [...primeNumbers],
         failedIndices,
-        firstBreak, 
+        firstBreak,
         timeElapsed
     }
     console.log(`${name}:
