@@ -1,3 +1,8 @@
+::selection {
+    background-color: white;
+    color: #FFBC42;
+}
+
 body {
     position: absolute;
     width: 100%;
@@ -13,7 +18,7 @@ body {
 h1 {
     background-color: white;
     z-index: 1;
-    padding-top: 150px;
+    padding-top: 125px;
     padding-bottom: 250px;
     padding-left: 90px;
     margin-left: 0px;
@@ -105,6 +110,7 @@ button {
 
 button:hover {
     cursor: pointer;
+    font-weight: 100;
 }
 
 .dropbtn {
@@ -144,16 +150,11 @@ button:hover {
     color: #FFBC42;
     font-size: 26px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
-}
-
-.dropdown:hover .dropbtn {
-    border-top-style: solid;
-    border-right-style: solid;
-    border-left-style: solid;
 }
 
 .ImageContainer {
@@ -202,4 +203,10 @@ button:hover {
 
 .dropdown {
     left: 300px;
+    transition: transform 0.5s, height 0.5s;
+}
+
+.highlightText {
+    font-size: 48px;
+    font-weight: 500;
 }

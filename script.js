@@ -1,5 +1,3 @@
-
-
 window.onload = () => {
     let dropdown = document.querySelector('#dropdownContent')
     formulas.map(({ name, formula }) => {
@@ -52,11 +50,13 @@ function setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElaps
 
 function printArray(arr) {
     let output = ''
-    for (var i in arr) {
-        output = output + ", " + arr[i]
+    output += arr[0];
+    for (var i = 1; i < arr.length; i++) {
+        output = output + ",    " + arr[i]
     }
     return output
 }
+
 function run() {
 
 }
