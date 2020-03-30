@@ -222,3 +222,7 @@ button:hover {
 .output {
     opacity: 0%;
 }
+
+.hide {
+    opacity: 0;
+}

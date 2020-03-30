@@ -39,6 +39,7 @@ function setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElaps
     const timeElapsedHTML = document.querySelector('#timeElapsed')
 
     output.classList.remove('output')
+    TheImage.classList.add('hide')
     outputMax.innerHTML = maxPrime ? maxPrime : ''
     primeNumbersHTML.innerHTML = primeNumbers ? printArray(primeNumbers) : ''
     primeCountHTML.innerHTML = primeNumbers.length
