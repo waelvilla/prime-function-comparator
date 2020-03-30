@@ -10,45 +10,58 @@
 </head>
 
 <body>
-    <h1>Prime Number Generator</h1>
+    <div class="heading">
+        <h1>Prime Number Generator</h1>
+    </div>
 
     <section>
         <!-- <div class="ImageContainer"> -->
         <!-- <div class="Upper"></div> -->
         <!-- <div class="Lower"></div> -->
         </div>
-        <div class="col-lg-6">
+        <div>
+            <div class="TheMainThree">
+                <div class="TheMainTwo">
+                    <input type="text" id="userInput" placeholder="Upper Bound, Ex.10000">
+                    <div class="dropdown">
+                        <button class="dropbtn" id="dropdownTitle">Select Method</button>
+                        <div class="dropdown-content" id="dropdownContent">
+                        </div>
+                    </div>
 
-            <input type="text" id="userInput" placeholder="Upper Bound, Ex.10000">
-
-
-            <div class="dropdown">
-                <button class="dropbtn" id="dropdownTitle">Select Method</button>
-                <div class="dropdown-content" id="dropdownContent">
                 </div>
+                <button type="button" class="submitButton" onclick="checkPrime()">Check Prime</button>
             </div>
-            <div id="output" class="d-none">
-                <div class="title">
-                    Out of <span class="font-weight-bold" id="maxNumber"></span> numbers:
-                </div>
-                <div class="result">
-                    <div>
-                        Correctly identified primes: <span id="primeCount" class="highlightText">1000</span> numbers
-                    </div>
-                    <div>
-                        Incorrect results: <span id="failedIndices" class="highlightText">5000</span> numbers
-                    </div>
-                    <div>
-                        Time Spent: <span id="timeElapsed" class="highlightText">12</span> ms
-                    </div>
 
-                    <div>
-                        First Break: at <span id="firstBreak" class="highlightText">12</span>
-                    </div>
+            <div id="output" class="output">
 
+                <div class="TheRow">
+                    <div>
+                        <div class="title">
+                            Out of <span class="font-weight-bold" id="maxNumber"></span> numbers:
+                        </div>
+                        <div class="result">
+                            <div>
+                                Correctly identified primes: <span id="primeCount" class="highlightText"></span>
+                            </div>
+                            <div>
+                                Incorrect results: <span id="failedIndices" class="highlightText"></span>
+                            </div>
+                            <div>
+                                Time Spent: <span id="timeElapsed" class="highlightText"></span> ms
+                            </div>
+
+                            <div>
+                                First Break: at <span id="firstBreak" class="highlightText"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <canvas id="myChart" class="pieChart"></canvas>
                 </div>
+
                 <div class="resultsTitle">
-                    Results
+                    Primes Generated
                 </div>
 
                 <div class="results" id="primeNumbers">
@@ -57,9 +70,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="submitButton" onclick="checkPrime()">Check Prime</button>
 
-        <canvas id="myChart" class="pieChart" width="400" height="400" ,></canvas>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.js"></script>
@@ -73,7 +84,6 @@
 
             var config = {
                 type: 'pie',
-
                 data: {
                     datasets: [{
 
@@ -91,13 +101,14 @@
 
                     }],
 
-                    labels: [
-                        'true primes',
-                        'false primes',
-                    ]
+                    // labels: [
+                    //     'true primes',
+                    //     'false primes',
+                    // ]
                 },
                 options: {
                     responsive: false,
+                    padding: 200,
 
 
                 },

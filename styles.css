@@ -5,12 +5,9 @@
 
 body {
     position: absolute;
-    width: 100%;
-    height: 100%;
     margin: 0px;
     padding: 0px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    ;
     font-weight: 100;
     background-color: #FFBC42;
 }
@@ -22,8 +19,6 @@ h1 {
     padding-bottom: 250px;
     padding-left: 90px;
     margin-left: 0px;
-    height: 25%;
-    left: 59px;
     font-style: normal;
     font-weight: 100;
     font-size: 72px;
@@ -31,20 +26,18 @@ h1 {
 }
 
 .pieChart {
-    right: 200px;
+    margin-right: 150px;
     width: 400px;
     height: 400px;
 }
 
 section {
-    background-position: 85% 0px;
     display: flex;
     flex-direction: row;
     padding-left: 80px;
     padding-top: 50px;
-    width: 100%;
-    height: 100%;
     margin-top: -150px;
+    width: 100%;
     position: relative;
     background-color: #FFBC42;
 }
@@ -53,7 +46,6 @@ section {
     z-index: 1;
     margin-bottom: 20px;
     padding: 15px;
-    width: 503px;
     height: 69px;
     background-color: #FFBC42;
     border: 3px solid #FFFFFF;
@@ -65,7 +57,6 @@ section {
 
 .result {
     color: white;
-    font-weight: 00;
     border-radius: 5px;
     padding-bottom: 10px;
     font-size: 32px;
@@ -80,24 +71,20 @@ section {
 .title {
     color: #FFFFFF;
     font-size: 48px;
-    font-weight: 500;
     margin-top: 20px;
 }
 
 .resultsTitle {
     color: #FFFFFF;
     font-size: 72px;
-    margin-top: 50px;
+    margin-top: 25px;
     font-weight: 200;
 }
 
 button {
-    position: relative;
-    margin-left: -300px;
     z-index: 1;
-    justify-self: end;
     border-style: none;
-    width: 328px;
+    width: 350px;
     height: 162px;
     background: #FFFFFF;
     border-radius: 15px;
@@ -115,10 +102,9 @@ button:hover {
 
 .dropbtn {
     z-index: 1;
-    position: relative;
     height: 69px;
     border-radius: 5px;
-    width: 503px;
+    width: 100%;
     background-color: #FFFFFF;
     color: #FFBC42;
     font-size: 26px;
@@ -128,8 +114,7 @@ button:hover {
 
 .dropdown-content {
     z-index: 1;
-    width: 495px;
-    margin-left: -295px;
+    width: 100%;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -155,6 +140,11 @@ button:hover {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.submitButton {
+    margin-left: 50px;
+    width: 500px;
 }
 
 .ImageContainer {
@@ -185,28 +175,49 @@ button:hover {
 }
 
 .pieChart {
-    padding: 0px;
-    margin-top: 0px;
-    margin-left: 250px;
-    height: 450px;
-    width: 450px;
+    margin-top: 50px;
+    margin-right: -100px;
+    height: 700px;
+    width: 700px;
 }
 
 .results {
     color: white;
     font-weight: 300;
     font-size: 48px;
-    width: 1700px;
     letter-spacing: 15px;
     line-height: 200px;
 }
 
+.TheRow {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .dropdown {
-    left: 300px;
     transition: transform 0.5s, height 0.5s;
 }
 
 .highlightText {
     font-size: 48px;
     font-weight: 500;
+}
+
+.TheMainTwo {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+
+.TheMainThree {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-right: 100px;
+}
+
+.output {
+    opacity: 0%;
 }

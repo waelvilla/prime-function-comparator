@@ -38,7 +38,7 @@ function setOutputs(maxPrime, primeNumbers, failedIndices, firstBreak, timeElaps
     const firstBreakHTML = document.querySelector('#firstBreak')
     const timeElapsedHTML = document.querySelector('#timeElapsed')
 
-    output.classList.remove('d-none')
+    output.classList.remove('output')
     outputMax.innerHTML = maxPrime ? maxPrime : ''
     primeNumbersHTML.innerHTML = primeNumbers ? printArray(primeNumbers) : ''
     primeCountHTML.innerHTML = primeNumbers.length
